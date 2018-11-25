@@ -1,6 +1,7 @@
 <template>
   <div>
-    <font-awesome-icon class='clickable' icon="cog" />
+    <!-- TODO: Make this a modal -->
+    You expected a modal BUT IT WAS ME DIO
   </div>
 </template>
 

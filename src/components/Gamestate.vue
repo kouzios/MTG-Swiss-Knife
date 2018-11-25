@@ -17,13 +17,21 @@
                 </div>
             </div>
         </div>
+        <font-awesome-icon class='clickable' icon="cog" @click="settingsDisplay = !settingsDisplay"/>
+        <Settings v-if="settingsDisplay == true"/>
     </div>
 </template>
 
 <script>
+import Settings from "./Settings.vue";
+
 export default {
+    components: {
+        Settings
+    },
     data: function() {
         return {
+            settingsDisplay: false,
             players: [
                 {
                     name: "Player 1",
