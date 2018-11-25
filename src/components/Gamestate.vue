@@ -65,9 +65,13 @@ export default {
                         this.players[i].lifeColor = "green";
                     } else if (life == 40) {
                         this.players[i].lifeColor = "black";
-
                     } else {
-                        this.players[i].lifeColor = "red";
+                        this.players[i].lifeColor = "#BA2020";
+                    }
+
+                    if(life == 1337) {
+                      var src = new Audio("../../static/nicememe.wav");
+                      src.play();
                     }
                 }
             },
@@ -90,14 +94,6 @@ export default {
     border: none !important;
     background-color: #f8f8f8;
     box-sizing: border-box;
-}
-
-.surplus-life {
- color: green;
-}   
-
-.deficit-life {
-    color: red;
 }
 
 .name-input {
