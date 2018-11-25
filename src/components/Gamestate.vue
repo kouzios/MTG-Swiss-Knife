@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class='row-fluid'>
+        <div class='row'>
             <div class='player card col-6' v-for="(player, index) in players" :key="'player' + index">
                 <input class='name-input' type='text' :value="player.name" autocomplete="off"/>
                 <hr>
@@ -41,7 +41,6 @@ export default {
 .player {
     box-shadow: 2px 2px lightgray;
     text-align: center;
-    margin: 1rem 1rem 1rem 1rem;
 }
 
 .life-input {
