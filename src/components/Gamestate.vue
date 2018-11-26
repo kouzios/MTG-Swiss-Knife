@@ -9,7 +9,7 @@
                         -
                     </div>
                     <div class='col-4'>
-                        <input class='life-input mw-100' type='text' v-model="player.life" :style='{color: player.lifeColor}' autocomplete="off"/>
+                        <input class='input-variant mw-100' type='text' v-model="player.life" :style='{color: player.lifeColor}' autocomplete="off"/>
                     </div>
                     <div class='col-4 btn point-alteration' @click='incriment(index)'>
                         +
@@ -17,21 +17,28 @@
                 </div>
             </div>
         </div>
-        <font-awesome-icon class='clickable' icon="cog" @click="settingsDisplay = !settingsDisplay"/>
-        <Settings v-if="settingsDisplay == true"/>
+        <div class='pt-2 pb-2 d-flex justify-content-center flex-row point-alteration'>
+            <font-awesome-icon class='clickable' icon="users" v-b-modal.playersModal/>
+            <font-awesome-icon class='ml-2 clickable' icon="sync" @click='resetState'/>
+            <font-awesome-icon class='ml-2 clickable' icon="cog" v-b-modal.settingsModal/>
+        </div>
+        <PlayerCount :playerCount='players.length' @update='playersUpdate'/>
+        <Settings :defaultLife='defaultLife' @update='settingsUpdate'/>
     </div>
 </template>
 
 <script>
 import Settings from "./Settings.vue";
+import PlayerCount from "./PlayerCount.vue";
 
 export default {
     components: {
-        Settings
+        Settings,
+        PlayerCount
     },
     data: function() {
         return {
-            settingsDisplay: false,
+            defaultLife: 40,
             players: [
                 {
                     name: "Player 1",
@@ -62,6 +69,31 @@ export default {
         },
         incriment(index) {
             this.players[index].life++
+        },
+        resetState() {
+            for(var i = 0; i < this.players.length; i++) {
+                this.players[i].life = this.defaultLife
+            }
+        },
+        settingsUpdate(val) {
+            this.defaultLife = val
+        },
+        playersUpdate(val) {
+            var difference = val - this.players.length;
+            if(difference == 0) {
+            } else if (difference > 0) {
+                for(var i = 0; i < difference; i++) {
+                    this.players.push({
+                        name: "Player " + (this.players.length + 1),
+                        life: this.defaultLife,
+                        lifeColor: "black"
+                    });
+                }
+            } else {
+                for(var i = difference; i < 0; i++) {
+                    this.players.pop();
+                }
+            }
         }
     },
     watch: {
@@ -69,9 +101,9 @@ export default {
             handler: function(val) {
                 for(var i = 0; i < this.players.length; i++) {
                     var life = val[i].life;
-                    if(life > 40) {
+                    if(life > this.defaultLife) {
                         this.players[i].lifeColor = "green";
-                    } else if (life == 40) {
+                    } else if (life == this.defaultLife) {
                         this.players[i].lifeColor = "black";
                     } else {
                         this.players[i].lifeColor = "#BA2020";
@@ -96,23 +128,10 @@ export default {
     padding-right: 0px !important;
 }
 
-.life-input {
-    text-align: center;
-    font-size: 32px;
-    border: none !important;
-    background-color: #f8f8f8;
-    box-sizing: border-box;
-}
-
 .name-input {
     text-align: center;
     font-size: 32px;
     border: none !important;
-}
-
-.point-alteration {
-    font-size: 24px;
-    background-color: #f1f1f1 !important;
 }
 
 .point-area {
