@@ -52,6 +52,7 @@ export default {
         defaultLife: {
             handler: function(val) {
                 this.dLife = val
+                this.handleColoring(this.playerData.life)
             }
         }
     }

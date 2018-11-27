@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class='container'>
         <div class='row'>
             <div class='player card col-6' v-for="(player, index) in players" :key="'player' + index">
                 <input class='name-input' type='text' v-model="player.name" autocomplete="off"/>
                 <hr class='condensed'>
-                 <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
+                <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
             </div>
         </div>
-        <div class='pt-2 pb-2 d-flex justify-content-center footer flex-row w-100'>
+        <div class='pt-2 pb-2 ml-0 d-flex justify-content-center footer flex-row w-100'>
             <font-awesome-icon class='clickable' icon="users" v-b-modal.playersModal/>
             <font-awesome-icon class='ml-2 clickable' icon="sync" @click='resetState'/>
             <font-awesome-icon class='ml-2 clickable' icon="cog" v-b-modal.settingsModal/>
@@ -56,12 +56,6 @@ export default {
         }
     },
     methods: {
-        decriment(index) {
-            this.players[index].life--
-        },
-        incriment(index) {
-            this.players[index].life++
-        },
         resetState() {
             for(var i = 0; i < this.players.length; i++) {
                 this.players[i].life = this.defaultLife
