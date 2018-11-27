@@ -4,20 +4,10 @@
             <div class='player card col-6' v-for="(player, index) in players" :key="'player' + index">
                 <input class='name-input' type='text' v-model="player.name" autocomplete="off"/>
                 <hr>
-                <div class='row point-area'>
-                    <div class='col-4 btn point-alteration' @click='decriment(index)'>
-                        -
-                    </div>
-                    <div class='col-4'>
-                        <input class='input-variant mw-100' type='text' v-model="player.life" :style='{color: player.lifeColor}' autocomplete="off"/>
-                    </div>
-                    <div class='col-4 btn point-alteration' @click='incriment(index)'>
-                        +
-                    </div>
-                </div>
+                 <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
             </div>
         </div>
-        <div class='pt-2 pb-2 d-flex justify-content-center flex-row point-alteration'>
+        <div class='pt-2 pb-2 d-flex justify-content-center footer flex-row w-100'>
             <font-awesome-icon class='clickable' icon="users" v-b-modal.playersModal/>
             <font-awesome-icon class='ml-2 clickable' icon="sync" @click='resetState'/>
             <font-awesome-icon class='ml-2 clickable' icon="cog" v-b-modal.settingsModal/>
@@ -30,11 +20,13 @@
 <script>
 import Settings from "./Settings.vue";
 import PlayerCount from "./PlayerCount.vue";
+import Lifestate from "./Lifestate.vue";
 
 export default {
     components: {
         Settings,
-        PlayerCount
+        PlayerCount,
+        Lifestate
     },
     data: function() {
         return {
@@ -95,28 +87,6 @@ export default {
                 }
             }
         }
-    },
-    watch: {
-        players: {
-            handler: function(val) {
-                for(var i = 0; i < this.players.length; i++) {
-                    var life = val[i].life;
-                    if(life > this.defaultLife) {
-                        this.players[i].lifeColor = "green";
-                    } else if (life == this.defaultLife) {
-                        this.players[i].lifeColor = "black";
-                    } else {
-                        this.players[i].lifeColor = "#BA2020";
-                    }
-
-                    if(life == 1337) {
-                      var src = new Audio("../../static/nicememe.wav");
-                      src.play();
-                    }
-                }
-            },
-            deep: true
-        }
     }
 }
 </script>
@@ -125,7 +95,8 @@ export default {
 .player {
     box-shadow: 2px 2px lightgray;
     text-align: center;
-    padding-right: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
 }
 
 .name-input {
@@ -134,7 +105,8 @@ export default {
     border: none !important;
 }
 
-.point-area {
-    background-color: #f8f8f8;
+.footer {
+  font-size: 24px;
+  background-color: #f1f1f1 !important;
 }
 </style>
