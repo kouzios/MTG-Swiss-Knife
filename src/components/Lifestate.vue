@@ -1,13 +1,19 @@
 <template>
     <div class='w-100 row point-area'>
-        <div class='col-4 btn point-alteration' @click='decriment(pIndex)'>
-            -
+        <div class='col-2 btn major-point-alteration' @click='playerData.life = playerData.life - 5'>
+            -5
+        </div>
+        <div class='col-2 btn point-alteration' @click='playerData.life = playerData.life - 1'>
+            -1
         </div>
         <div class='col-4'>
             <input class='input-variant mw-100' type='text' v-model="playerData.life" :style='{color: playerData.lifeColor}' autocomplete="off"/>
         </div>
-        <div class='col-4 btn point-alteration' @click='incriment(pIndex)'>
-            +
+        <div class='col-2 btn point-alteration' @click='playerData.life = playerData.life + 1'>
+            +1
+        </div>
+        <div class='col-2 btn major-point-alteration' @click='playerData.life = playerData.life + 5'>
+            +5
         </div>     
     </div>
 </template>
@@ -26,12 +32,6 @@ export default {
         }
     },
     methods: {
-        incriment(index) {
-            this.playerData.life++
-        },
-        decriment(index) {
-            this.playerData.life--
-        },
         handleColoring(life) {
             if(life > this.dLife) {
                 this.playerData.lifeColor = "green";

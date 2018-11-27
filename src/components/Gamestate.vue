@@ -3,7 +3,7 @@
         <div class='row'>
             <div class='player card col-6' v-for="(player, index) in players" :key="'player' + index">
                 <input class='name-input' type='text' v-model="player.name" autocomplete="off"/>
-                <hr>
+                <hr class='condensed'>
                  <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
             </div>
         </div>
@@ -108,5 +108,9 @@ export default {
 .footer {
   font-size: 24px;
   background-color: #f1f1f1 !important;
+}
+
+.condensed {
+    margin-bottom: 0px !important;
 }
 </style>

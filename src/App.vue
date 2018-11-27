@@ -21,6 +21,12 @@ export default {
   padding: 0px !important;
 }
 
+.major-point-alteration {
+  font-size: 24px;
+  background-color: rgb(231, 231, 231) !important;
+  padding: 0px !important;
+}
+
 .modal-close {
   color: white !important;
 }

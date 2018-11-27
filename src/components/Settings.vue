@@ -7,13 +7,19 @@
         </b>
       </div>
       <div class='row'>
-        <div class='col-4 btn point-alteration' @click='life--'>
-          -
+        <div class='col-2 btn point-alteration' @click='life = life - 5'>
+            -5
+        </div>  
+        <div class='col-2 btn point-alteration' @click='life--'>
+          -1
         </div>
         <input class='col-4 input-variant' type='number' v-model='life'>
-        <div class='col-4 btn point-alteration' @click='life++'>
-          +
+        <div class='col-2 btn point-alteration' @click='life++'>
+          +1
         </div>
+        <div class='col-2 btn point-alteration' @click='life = life + 5'>
+            +5
+        </div>  
       </div>
       <div class='mt-2 d-flex flex-row justify-content-end modal-close'>
         <div class='btn bg-secondary mr-1' @click="hideModal">
