@@ -31,26 +31,28 @@ export default {
         },
         decriment(index) {
             this.playerData.life--
+        },
+        handleColoring(life) {
+            if(life > this.dLife) {
+                this.playerData.lifeColor = "green";
+            } else if (life == this.dLife) {
+                this.playerData.lifeColor = "black";
+            } else {
+                this.playerData.lifeColor = "#BA2020";
+            }
         }
     },
     watch: {
         playerData: {
             handler: function(val) {
-                var life = val.life;
-                if(life > this.dLife) {
-                    this.playerData.lifeColor = "green";
-                } else if (life == this.dLife) {
-                    this.playerData.lifeColor = "black";
-                } else {
-                    this.playerData.lifeColor = "#BA2020";
-                }
-
-                if(life == 1337) {
-                    var src = new Audio("../../static/nicememe.wav");
-                    src.play();
-                }
+                this.handleColoring(val.life)
             },
             deep: true
+        },
+        defaultLife: {
+            handler: function(val) {
+                this.dLife = val
+            }
         }
     }
 }

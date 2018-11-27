@@ -40,10 +40,12 @@ export default {
   methods: {
     hideModal() {
       this.$refs.settingsModal.hide()
+      this.life = this.defaultLife
     },
     saveChanges() {
-      this.$emit('update', this.life)
-      this.hideModal()
+      var life = this.life
+      this.$emit('update', life)
+      this.$refs.settingsModal.hide()
     }
   }
 }
