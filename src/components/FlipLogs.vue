@@ -9,7 +9,7 @@
                 <span>
                     Flip {{ index+1 }}:
                 </span>
-                <span v-b-tooltip.hover :title="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
+                <span class='result' v-b-tooltip.hover :title="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
                     {{log.result}}
                 </span>
             </span>
@@ -49,5 +49,9 @@ export default {
 #log-container {
     max-height: 400px;
     overflow-y: scroll;
+}
+
+.result {
+    text-decoration: underline;
 }
 </style>
