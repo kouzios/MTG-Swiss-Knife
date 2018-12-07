@@ -67,19 +67,29 @@ export default {
         },
         flip() {
             this.resetData();
+            var heads = 0
+            var tails = 0
             for(var i = 0; i < this.flips; i++) {
                 if(Math.floor(Math.random() * 2) == 0) {
                     this.flipData.heads++
+                    heads++
                     this.logs.push({
                         result: "Heads",
-                        state: this.flipData
+                        state: {
+                            heads: heads,
+                            tails: tails
+                        }
                     });
                 } else {
                     this.flipData.tails++
                     var data = this.flipData
+                    tails++
                     this.logs.push({
                         result: "Tails",
-                        state: this.flipData
+                        state: {
+                            heads: heads,
+                            tails: tails
+                        }
                     });
                 }
             }
