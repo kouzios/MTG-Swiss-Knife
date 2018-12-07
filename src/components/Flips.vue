@@ -6,9 +6,9 @@
                 -1
             </div>
             <div class='col-8'>
-                <input class='input-variant mw-100' type='text' v-model="flipData.flips" autocomplete="off"/>
+                <input class='input-variant mw-100' type='text' v-model="flips" autocomplete="off"/>
             </div>
-            <div class='col-2 btn major-point-alteration' @click='flipData.flips++'>
+            <div class='col-2 btn major-point-alteration' @click='flips++'>
                 +1
             </div>
         </div>
@@ -49,10 +49,10 @@ export default {
     data: function() {
         return {
             flipData: {
-                flips: 0,
                 heads: 0,
                 tails: 0
             },
+            flips: 0,
             logs: []
         }
     },
@@ -61,19 +61,26 @@ export default {
             this.$refs.flipsModal.hide()
         },
         decriment() {
-            if(this.flipData.flips > 0) {
-                this.flipData.flips--;
+            if(this.flips > 0) {
+                this.flips--;
             }
         },
         flip() {
             this.resetData();
-            for(var i = 0; i < this.flipData.flips; i++) {
+            for(var i = 0; i < this.flips; i++) {
                 if(Math.floor(Math.random() * 2) == 0) {
                     this.flipData.heads++
-                    this.logs.push("Heads")
+                    this.logs.push({
+                        result: "Heads",
+                        state: this.flipData
+                    });
                 } else {
                     this.flipData.tails++
-                    this.logs.push("Tails")
+                    var data = this.flipData
+                    this.logs.push({
+                        result: "Tails",
+                        state: this.flipData
+                    });
                 }
             }
         },

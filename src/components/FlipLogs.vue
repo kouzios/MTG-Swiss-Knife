@@ -9,8 +9,8 @@
                 <span>
                     Flip {{ index+1 }}:
                 </span>
-                <span>
-                    {{log}}
+                <span v-b-tooltip.hover :title="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
+                    {{log.result}}
                 </span>
             </span>
         </div>
