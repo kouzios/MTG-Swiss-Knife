@@ -19,7 +19,7 @@
                     {{ flipData.heads }} 
                 </span>
             </span>
-            <span class='results mr-3'>
+            <span v-b-tooltip.hover.right="'Flip Logs'" class='results mr-3'>
                 <font-awesome-icon class='clickable' icon="book" v-b-modal.logModal/>
             </span>
             <span class='results'>

@@ -9,7 +9,7 @@
                 <span>
                     Flip {{ index+1 }}:
                 </span>
-                <span class='result' v-b-tooltip.hover :title="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
+                <span class='result' v-b-tooltip.hover.right="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
                     {{log.result}}
                 </span>
             </span>
@@ -52,6 +52,6 @@ export default {
 }
 
 .result {
-    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 </style>
