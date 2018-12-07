@@ -10,7 +10,7 @@
         <div class='col-4 btn point-alteration' @click='pCount--'>
           -
         </div>
-        <input class='col-4 input-variant' type='number' v-model='pCount'>
+        <input class='col-4 input-variant' type='text' v-model='pCount'>
         <div class='col-4 btn point-alteration' @click='pCount++'>
           +
         </div>

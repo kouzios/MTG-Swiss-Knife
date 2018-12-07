@@ -2,17 +2,7 @@
   <b-modal ref='logModal' id="logModal" hide-footer title="Flip logs">
     <div class='d-flex flex-column justify-content-center'>
         <div class='w-100 mt-3 d-flex flex-column' id='log-container'>
-            <h3 class='log_results'>
-                Logs
-            </h3>
-            <span class='log_results' v-for="(log, index) in logs" :key="index + 'log'">
-                <span>
-                    Flip {{ index+1 }}:
-                </span>
-                <span class='result' v-b-tooltip.hover.right="'Heads: ' + log.state.heads + ' Tails: ' + log.state.tails">
-                    {{log.result}}
-                </span>
-            </span>
+            <b-table small :items="logs"/>
         </div>
         <div class='btn btn-primary w-100 mt-3' @click='back'>
             <span>
@@ -33,9 +23,12 @@ export default {
     }
   },
   methods: {
+    hideModal() {
+        this.$refs.logModal.hide()
+    },
     back () {
       this.$emit("back")
-    },
+    }
   }
 }
 </script>

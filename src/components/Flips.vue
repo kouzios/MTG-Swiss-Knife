@@ -2,14 +2,20 @@
 <div>
     <b-modal ref='flipsModal' id="flipsModal" hide-footer title="Coin Flipper">
         <div class='w-100 row point-area'>
-            <div class='col-2 btn major-point-alteration' @click='decriment'>
+            <div class='col-2 btn major-point-alteration' @click='decriment(5)'>
+                -5
+            </div>
+            <div class='col-2 btn major-point-alteration' @click='decriment(1)'>
                 -1
             </div>
-            <div class='col-8'>
+            <div class='col-4'>
                 <input class='input-variant mw-100' type='text' v-model="flips" autocomplete="off"/>
             </div>
             <div class='col-2 btn major-point-alteration' @click='flips++'>
                 +1
+            </div>
+            <div class='col-2 btn major-point-alteration' @click='flips+=5'>
+                +5
             </div>
         </div>
         <div class='w-100 mt-3 d-flex flex-row justify-content-around'>
@@ -60,9 +66,11 @@ export default {
         hideModal() {
             this.$refs.flipsModal.hide()
         },
-        decriment() {
-            if(this.flips > 0) {
-                this.flips--;
+        decriment(count) {
+            for(var i = 0; i < count; i++) {
+                if(this.flips > 0) {
+                    this.flips--;
+                }
             }
         },
         flip() {
@@ -74,10 +82,12 @@ export default {
                     this.flipData.heads++
                     heads++
                     this.logs.push({
+                        flip: i+1,
                         result: "Heads",
-                        state: {
-                            heads: heads,
-                            tails: tails
+                        state: "Heads: " + heads + "\tTails: " + tails,
+                        //This is some bootstrap vue table styling schenanigans
+                        _cellVariants: {
+                            result: 'success'
                         }
                     });
                 } else {
@@ -85,10 +95,11 @@ export default {
                     var data = this.flipData
                     tails++
                     this.logs.push({
+                        flip: i+1,
                         result: "Tails",
-                        state: {
-                            heads: heads,
-                            tails: tails
+                        state: "Heads: " + heads + "\tTails: " + tails,
+                        _cellVariants: {
+                            result: 'danger'
                         }
                     });
                 }
