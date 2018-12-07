@@ -12,7 +12,7 @@ import gamestate from './Gamestate.vue';
 
 export default {
   components: {
-    gamestate,
+    gamestate
   }
 }
 </script>

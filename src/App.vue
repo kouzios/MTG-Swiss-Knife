@@ -46,4 +46,10 @@ body {
     background-color: #f8f8f8;
     box-sizing: border-box;
 }
+
+.point-area {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    background-color: #f8f8f8;
+}
 </style>

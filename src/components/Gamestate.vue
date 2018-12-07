@@ -9,11 +9,13 @@
         </div>
         <div class='pt-2 pb-2 ml-0 d-flex justify-content-center footer flex-row w-100'>
             <font-awesome-icon class='clickable' icon="users" v-b-modal.playersModal/>
+            <font-awesome-icon class='ml-2 clickable' icon="coins" v-b-modal.flipsModal/>
             <font-awesome-icon class='ml-2 clickable' icon="sync" @click='resetState'/>
             <font-awesome-icon class='ml-2 clickable' icon="cog" v-b-modal.settingsModal/>
         </div>
         <PlayerCount :playerCount='players.length' @update='playersUpdate'/>
         <Settings :defaultLife='defaultLife' @update='settingsUpdate'/>
+        <Flips/>
     </div>
 </template>
 
@@ -21,12 +23,14 @@
 import Settings from "./Settings.vue";
 import PlayerCount from "./PlayerCount.vue";
 import Lifestate from "./Lifestate.vue";
+import Flips from "./Flips.vue";
 
 export default {
     components: {
         Settings,
         PlayerCount,
-        Lifestate
+        Lifestate,
+        Flips
     },
     data: function() {
         return {
