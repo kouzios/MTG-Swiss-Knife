@@ -5,13 +5,13 @@
             <div class='col-2 btn major-point-alteration' @click='decriment(5)'>
                 -5
             </div>
-            <div class='col-2 btn major-point-alteration' @click='decriment(1)'>
+            <div class='col-2 btn point-alteration' @click='decriment(1)'>
                 -1
             </div>
             <div class='col-4'>
                 <input class='input-variant mw-100' type='text' v-model="flips" autocomplete="off"/>
             </div>
-            <div class='col-2 btn major-point-alteration' @click='flips++'>
+            <div class='col-2 btn point-alteration' @click='flips++'>
                 +1
             </div>
             <div class='col-2 btn major-point-alteration' @click='flips+=5'>
