@@ -1,9 +1,9 @@
 <template>
-    <div class='container mt-5'>
+    <div class='container mt-2'>
         <div class='row'>
             <div class='player card col-6'  :class="{flipped: player.isFlipped}" v-for="(player, index) in players" :key="'player' + index">
                 <div class='d-flex flex-row'>
-                    <font-awesome-icon v-b-tooltip.hover.right="'Flip View'" class='clickable flip' icon="level-up-alt" @click="player.isFlipped = !player.isFlipped"/>
+                    <font-awesome-icon class='clickable flip' icon="level-up-alt" @click="player.isFlipped = !player.isFlipped"/>
                     <input class="name-input w-100" type='text' v-model="player.name" autocomplete="off"/>
                 </div>
                 <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
