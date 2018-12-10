@@ -1,5 +1,5 @@
 <template>
-  <b-modal ref='settingsModal' id="settingsModal" hide-footer title="Number of Players">
+  <b-modal ref='settingsModal' id="settingsModal" hide-footer title="Settings">
     <div class='d-flex flex-column justify-content-center'>
       <div class='centered'>
         <b>
@@ -8,7 +8,7 @@
       </div>
       <div class='row'>
         <div class='col-2 btn point-alteration' @click='life = life - 5'>
-            -5
+          -5
         </div>  
         <div class='col-2 btn point-alteration' @click='life--'>
           -1

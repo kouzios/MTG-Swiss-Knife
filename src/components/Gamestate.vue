@@ -1,5 +1,5 @@
 <template>
-    <div class='container'>
+    <div class='container mt-5'>
         <div class='row'>
             <div class='player card col-6'  :class="{flipped: player.isFlipped}" v-for="(player, index) in players" :key="'player' + index">
                 <div class='d-flex flex-row'>
