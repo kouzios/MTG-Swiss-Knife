@@ -1,8 +1,11 @@
 <template>
     <div class='container'>
         <div class='row'>
-            <div class='player card col-6' v-for="(player, index) in players" :key="'player' + index">
-                <input class='name-input' type='text' v-model="player.name" autocomplete="off"/>
+            <div class='player card col-6'  :class="{flipped: player.isFlipped}" v-for="(player, index) in players" :key="'player' + index">
+                <div class='d-flex flex-row'>
+                    <font-awesome-icon v-b-tooltip.hover.right="'Flip View'" class='clickable d-flex justify-content-center' icon="level-up-alt" @click="player.isFlipped = !player.isFlipped"/>
+                    <input class="name-input w-100" type='text' v-model="player.name" autocomplete="off"/>
+                </div>
                 <hr class='condensed'>
                 <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
             </div>
@@ -39,22 +42,26 @@ export default {
                 {
                     name: "Player 1",
                     life: 40,
-                    lifeColor: "black"
+                    lifeColor: "black",
+                    isFlipped: false
                 },
                 {
                     name: "Player 2",
                     life: 40,
-                    lifeColor: "black"
+                    lifeColor: "black",
+                    isFlipped: false
                 },
                 {
                     name: "Player 3",
                     life: 40,
-                    lifeColor: "black"
+                    lifeColor: "black",
+                    isFlipped: false
                 },
                 {
                     name: "Player 4",
                     life: 40,
-                    lifeColor: "black"
+                    lifeColor: "black",
+                    isFlipped: false
                 }
             ]
         }
@@ -67,6 +74,9 @@ export default {
         },
         settingsUpdate(val) {
             this.defaultLife = val
+        },
+        flip(index) {
+
         },
         playersUpdate(val) {
             var difference = val - this.players.length;
@@ -110,5 +120,13 @@ export default {
 
 .condensed {
     margin-bottom: 0px !important;
+}
+
+.flipped {
+    -webkit-transform:rotate(-180deg);
+    -moz-transform:rotate(-180deg);
+    -o-transform:rotate(-180deg);
+    transform:rotate(-180deg);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
 </style>
