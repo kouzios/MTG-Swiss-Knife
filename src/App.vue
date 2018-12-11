@@ -20,13 +20,11 @@ body {
 }
 
 .point-alteration {
-  font-size: 24px;
   background-color: #f1f1f1 !important;
   padding: 0px !important;
 }
 
 .major-point-alteration {
-  font-size: 24px;
   background-color: rgb(231, 231, 231) !important;
   padding: 0px !important;
 }
@@ -53,12 +51,17 @@ body {
     background-color: #f8f8f8;
 }
 
-.checkbox {
-  margin-top: 2px;
-  margin-left: 5px;
-}
-
 .med-font {
   font-size: 18px;
+}
+
+.large-font, .major-point-alteration, .point-alteration, .tinted-icon {
+  font-size: 24px;
+}
+
+.tinted-icon {
+  background-color: rgb(231, 231, 231);
+  border-radius: 10px;
+  padding: 0px 7px 0px 7px;
 }
 </style>

@@ -11,6 +11,7 @@ import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { faLevelUpAlt } from '@fortawesome/free-solid-svg-icons'
 import { faInfinity } from '@fortawesome/free-solid-svg-icons'
+import { faAdjust } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -24,6 +25,7 @@ library.add(faCoins);
 library.add(faBook);
 library.add(faLevelUpAlt);
 library.add(faInfinity);
+library.add(faAdjust);
 
 Vue.config.productionTip = false
 

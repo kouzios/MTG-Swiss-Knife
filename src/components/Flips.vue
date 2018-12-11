@@ -43,34 +43,28 @@
                 </div>
             </div>
         </div>
-        <div class='w-100 mt-3 d-flex flex-row justify-content-around'>
-            <span class='results'>
+        <div class='w-100 mt-3 d-flex flex-row justify-content-around large-font'>
+            <span>
                 Heads:
                 <span> 
                     {{ flipData.heads }} 
                 </span>
             </span>
-            <span v-b-tooltip.hover.right="'Flip Logs'" class='results mr-3'>
-                <font-awesome-icon class='clickable' icon="book" v-b-modal.logModal/>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Normal'">
+                <font-awesome-icon class='clickable' icon="adjust" @click='flipSingle'/>
             </span>
-            <span class='results'>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'View Logs'" v-b-modal.logModal>
+                <font-awesome-icon class='clickable' icon="book"/>
+            </span>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Until Tails'">
+                <font-awesome-icon class='clickable' icon='infinity' @click='flipUntilTails'/>
+            </span>
+            <span>
                 Tails:
                 <span>
                     {{ flipData.tails }} 
                 </span>
             </span>
-        </div>
-        <div class='w-100 mt-3 d-flex flex-row justify-content-around'>
-            <div class='btn btn-primary' @click='flipSingle'>
-                <span>
-                    Normal FLIP
-                </span>
-            </div>
-            <div class='btn btn-primary' @click='flipUntilTails'>
-                <span>
-                    <font-awesome-icon class='clickable' icon='infinity'/>
-                </span>
-            </div>
         </div>
     </b-modal>
     <FlipLogs :logs="logs" @back='back'/>
@@ -198,7 +192,4 @@ export default {
 </script>
 
 <style scoped>
-.results {
-    font-size: 18pt
-}
 </style>
