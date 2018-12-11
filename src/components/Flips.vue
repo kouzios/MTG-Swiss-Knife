@@ -50,20 +50,25 @@
                     {{ flipData.heads }} 
                 </span>
             </span>
-            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Normal'">
-                <font-awesome-icon class='clickable' icon="adjust" @click='flipSingle'/>
-            </span>
-            <span class='tinted-icon' v-b-tooltip.hover.bottom="'View Logs'" v-b-modal.logModal>
-                <font-awesome-icon class='clickable' icon="book"/>
-            </span>
-            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Until Tails'">
-                <font-awesome-icon class='clickable' icon='infinity' @click='flipUntilTails'/>
-            </span>
             <span>
                 Tails:
                 <span>
                     {{ flipData.tails }} 
                 </span>
+            </span>
+        </div>
+        <div class='w-100 mt-3 d-flex flex-row justify-content-around large-font'>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Normal'">
+                <font-awesome-icon class='clickable' icon="adjust" @click='flipSingle'/>
+            </span>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Flip Until Tails'">
+                <font-awesome-icon class='clickable' icon='infinity' @click='flipUntilTails'/>
+            </span>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'Reset Values'">
+                <font-awesome-icon class='clickable' icon="sync" @click='resetAll'/>
+            </span>
+            <span class='tinted-icon' v-b-tooltip.hover.bottom="'View Logs'" v-b-modal.logModal>
+                <font-awesome-icon class='clickable' icon="book"/>
             </span>
         </div>
     </b-modal>
@@ -183,6 +188,11 @@ export default {
                 tails: 0
             }
             this.logs = []
+        },
+        resetAll() {
+            this.resetData()
+            this.flips = 0
+            this.numThumbs = 0
         },
         back() {
             this.$refs.flipsModal.show()
