@@ -10,10 +10,18 @@
             </div>
         </div>
         <div class='pt-2 pb-2 ml-0 d-flex justify-content-center footer flex-row w-100'>
-            <font-awesome-icon class='clickable' icon="users" v-b-modal.playersModal/>
-            <font-awesome-icon class='ml-2 clickable' icon="coins" v-b-modal.flipsModal/>
-            <font-awesome-icon class='ml-2 clickable' icon="sync" @click='resetState'/>
-            <font-awesome-icon class='ml-2 clickable' icon="cog" v-b-modal.settingsModal/>
+            <span class='clickable' v-b-tooltip.hover.bottom="'Set Players'" v-b-modal.playersModal>
+                <font-awesome-icon icon="users"/>
+            </span>
+            <span class='ml-2 clickable' v-b-tooltip.hover.bottom="'Flip Coins'" v-b-modal.flipsModal>
+                <font-awesome-icon icon="coins"/>
+            </span>
+            <span  class='ml-2 clickable' v-b-tooltip.hover.bottom="'Reset'" @click='resetState'>
+                <font-awesome-icon icon="sync"/>
+            </span>
+            <span class='ml-2 clickable' v-b-tooltip.hover.bottom="'Settings'" v-b-modal.settingsModal>
+                <font-awesome-icon  icon="cog"/>
+            </span>
         </div>
         <PlayerCount :playerCount='players.length' @update='playersUpdate'/>
         <Settings :defaultLife='defaultLife' @update='settingsUpdate'/>
