@@ -10,6 +10,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { faLevelUpAlt } from '@fortawesome/free-solid-svg-icons'
+import { faInfinity } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -22,6 +23,7 @@ library.add(faCog);
 library.add(faCoins);
 library.add(faBook);
 library.add(faLevelUpAlt);
+library.add(faInfinity);
 
 Vue.config.productionTip = false
 

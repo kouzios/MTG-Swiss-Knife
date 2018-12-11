@@ -52,4 +52,13 @@ body {
     margin-right: 0px !important;
     background-color: #f8f8f8;
 }
+
+.checkbox {
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+.med-font {
+  font-size: 18px;
+}
 </style>
