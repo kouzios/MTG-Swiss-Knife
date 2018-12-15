@@ -39,7 +39,7 @@ body {
 
 .input-variant {
     text-align: center;
-    font-size: 32px;
+    font-size: 42px;
     border: none !important;
     background-color: #f8f8f8;
     box-sizing: border-box;
@@ -51,12 +51,12 @@ body {
     background-color: #f8f8f8;
 }
 
-.med-font {
-  font-size: 18px;
+.medium-font {
+  font-size: 24px;
 }
 
 .large-font, .major-point-alteration, .point-alteration, .tinted-icon {
-  font-size: 24px;
+  font-size: 42px;
 }
 
 .tinted-icon {

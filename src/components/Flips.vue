@@ -3,8 +3,10 @@
     <b-modal ref='flipsModal' id="flipsModal" hide-footer title="Coin Flipper">
         <div>
             <div class='d-flex flex-row'>
-                <span class='med-font'>
+                <span class='medium-font'>
+                    <b>
                         Coins
+                    </b>
                 </span>
             </div>
             <div class='w-100 row point-area'>
@@ -27,8 +29,10 @@
         </div>
         <div class='mt-3'>
             <div class='d-flex flex-row'>
-                <span class='med-font'>
-                    Krark's Thumbs
+                <span class='medium-font'>
+                    <b>
+                        Krark's Thumbs
+                    </b>
                 </span>
             </div>
             <div class='w-100 row point-area'>

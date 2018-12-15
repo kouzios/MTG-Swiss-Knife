@@ -1,6 +1,6 @@
 <template>
-    <div class='container mt-2'>
-        <div class='row'>
+    <div class='container'>
+        <div class='row large-font'>
             <div class='player card col-6'  :class="{flipped: player.isFlipped}" v-for="(player, index) in players" :key="'player' + index">
                 <div class='d-flex flex-row'>
                     <font-awesome-icon class='clickable flip' icon="level-up-alt" v-b-tooltip.hover.bottom="'Flip View'" @click="player.isFlipped = !player.isFlipped"/>
@@ -9,7 +9,7 @@
                 <Lifestate :defaultLife='defaultLife' :player='player' :index='index'/>
             </div>
         </div>
-        <div class='pt-2 pb-2 ml-0 d-flex justify-content-center footer flex-row w-100'>
+        <div class='pt-2 pb-2 ml-0 d-flex justify-content-center footer flex-row w-100 large-font'>
             <span class='clickable' v-b-tooltip.hover.bottom="'Set Players'" v-b-modal.playersModal>
                 <font-awesome-icon icon="users"/>
             </span>
@@ -116,12 +116,10 @@ export default {
 
 .name-input {
     text-align: center;
-    font-size: 32px;
     border: none !important;
 }
 
 .footer {
-  font-size: 24px;
   background-color: #f1f1f1 !important;
 }
 
@@ -138,7 +136,6 @@ export default {
 }
 
 .flip {
-    font-size: 26px;
     padding: 2px 2px 0px 2px;
 }
 </style>

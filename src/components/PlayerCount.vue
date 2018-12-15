@@ -1,11 +1,11 @@
 <template>
   <b-modal ref='playersModal' id="playersModal" hide-footer title="Number of Players">
     <div class='d-flex flex-column justify-content-center'>
-      <div class='centered'>
+      <span class='centered medium-font'>
         <b>
           Players
         </b>
-      </div>
+      </span>
       <div class='row'>
         <div class='col-4 btn point-alteration' @click='pCount--'>
           -

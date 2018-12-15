@@ -1,11 +1,11 @@
 <template>
   <b-modal ref='settingsModal' id="settingsModal" hide-footer title="Settings">
     <div class='d-flex flex-column justify-content-center'>
-      <div class='centered'>
+      <span class='centered medium-font'>
         <b>
           Default Life
         </b>
-      </div>
+      </span>
       <div class='row'>
         <div class='col-2 btn point-alteration' @click='life = life - 5'>
           -5
