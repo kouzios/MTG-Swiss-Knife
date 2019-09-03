@@ -1,6 +1,8 @@
 # mtg-swiss-knife
 
-> A swiss knife application for MTG games (WIP)
+> A swiss knife application for MTG games
+
+The goal of creating this application was to learn more about Vue component interactions; however, it's functionality is one that allows for tracking various information that could be use in a Magic: The Gathering game - notably the coin-flipping functionality.
 
 ## Build Setup
 
